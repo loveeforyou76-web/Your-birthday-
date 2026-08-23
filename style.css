@@ -1,0 +1,943 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    color: #fff;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #d98ba7 0%,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #b886c5 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #35182f,
+            #5d294d,
+            #261528
+        );
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.page {
+    display: none;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.page.active {
+    display: flex;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 190, 210, 0.12);
+
+    filter: blur(100px);
+
+    top: -250px;
+
+    left: -200px;
+}
+
+
+.page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(220, 180, 255, 0.10);
+
+    filter: blur(100px);
+
+    bottom: -250px;
+
+    right: -200px;
+}
+
+
+/* =========================
+   FLOATING ELEMENTS
+========================= */
+
+
+/* =========================
+   FLOATING ELEMENTS
+========================= */
+
+.floating-elements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-elements span {
+    position: absolute;
+
+    color: rgba(190, 220, 255, 0.45);
+
+    font-size: 24px;
+
+    text-shadow:
+        0 0 15px rgba(150, 200, 255, 0.4);
+
+    animation: floatAround linear infinite;
+
+    opacity: 0;
+}
+
+
+/* أماكن مختلفة */
+
+.floating-elements span:nth-child(1) {
+    left: 5%;
+    top: 80%;
+    animation-duration: 8s;
+}
+
+.floating-elements span:nth-child(2) {
+    left: 20%;
+    top: 55%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.floating-elements span:nth-child(3) {
+    left: 35%;
+    top: 75%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.floating-elements span:nth-child(4) {
+    left: 50%;
+    top: 45%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.floating-elements span:nth-child(5) {
+    left: 70%;
+    top: 65%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.floating-elements span:nth-child(6) {
+    left: 90%;
+    top: 50%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+
+/* الحركة لفوق */
+
+@keyframes floatAround {
+
+    0% {
+        transform:
+            translateY(80px)
+            rotate(0deg)
+            scale(.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(-40vh)
+            rotate(20deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translateY(-100vh)
+            rotate(-15deg)
+            scale(.8);
+
+        opacity: 0;
+    }
+}
+
+
+
+/* =========================
+   GENERAL CONTENT
+========================= */
+
+.password-content,
+.home-content,
+.message-content,
+.final-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 680px);
+
+    text-align: center;
+
+    animation:
+        appear
+        .9s
+        ease;
+}
+
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.98);
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+.lock-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255, 190, 220, .3)
+        );
+}
+
+
+.mini-title {
+
+    color: #f2bfd1;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
+
+
+.password-content h1 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            55px,
+            12vw,
+            85px
+        );
+
+    font-weight: 400;
+
+    color: #fff1f6;
+}
+
+
+.password-text {
+
+    color: #dfb6c8;
+
+    font-size: 14px;
+
+    margin: 15px 0 25px;
+}
+
+
+#password-input {
+
+    display: block;
+
+    width: min(100%, 300px);
+
+    margin:
+        0 auto 15px;
+
+    padding:
+        14px 20px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 210, 225, .25);
+
+    outline: none;
+
+    background:
+        rgba(30, 15, 28, .65);
+
+    color: white;
+
+    text-align: center;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    backdrop-filter: blur(10px);
+}
+
+
+#password-input::placeholder {
+    color: #bd91a6;
+}
+
+
+#password-input:focus {
+
+    border-color: #e5a1bc;
+
+    box-shadow:
+        0 0 25px
+        rgba(230, 160, 190, .15);
+}
+
+
+#password-error {
+
+    display: none;
+
+    color: #f0a2b9;
+
+    font-size: 12px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-button {
+
+    padding:
+        14px 28px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-family: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d77b9e,
+            #9b5c91
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(180, 100, 160, .25);
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+
+.main-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 15px 40px
+        rgba(200, 120, 170, .35);
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home-content h1 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            65px,
+            14vw,
+            105px
+        );
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: #fff4f8;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 200, 220, .3);
+}
+
+
+.home-content h2 {
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            48px
+        );
+
+    font-weight: 400;
+
+    color: #fbd8e4;
+
+    margin-top: 5px;
+}
+
+
+.intro-text {
+
+    width:
+        min(100%, 500px);
+
+    margin:
+        20px auto;
+
+    color: #e8c2d1;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.image-frame {
+
+    width:
+        min(100%, 340px);
+
+    margin:
+        28px auto;
+
+    padding: 7px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0a8c1,
+            #9b669d,
+            #f0a8c1
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(240, 160, 200, .18);
+}
+
+
+.image-placeholder {
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #512a46,
+            #251526
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #dcaec2;
+}
+
+
+.image-placeholder span {
+
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+
+.image-placeholder p {
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-content h2 {
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            42px
+        );
+
+    font-weight: 400;
+
+    color: #fff0f5;
+}
+
+
+.message-card {
+
+    position: relative;
+
+    width:
+        min(100%, 620px);
+
+    min-height: 270px;
+
+    margin: 30px auto;
+
+    padding:
+        60px 35px 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(104, 47, 83, .8),
+            rgba(35, 18, 34, .9)
+        );
+
+    border:
+        1px solid
+        rgba(255, 210, 225, .2);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, .3);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.message-number {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 25px;
+
+    color: #efabc4;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+#message-text {
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            20px,
+            4vw,
+            28px
+        );
+
+    line-height: 1.8;
+
+    color: #fff0f5;
+
+    white-space: pre-line;
+}
+
+
+.message-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.message-buttons button {
+
+    padding:
+        11px 23px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 210, 225, .2);
+
+    background:
+        rgba(120, 65, 105, .65);
+
+    color: #f5c6d8;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+
+.message-buttons button:hover {
+
+    background: #b66d91;
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   SMALL BUTTON
+========================= */
+
+.small-button {
+
+    margin-top: 15px;
+
+    padding:
+        10px 20px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: transparent;
+
+    color: #dba8bd;
+
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+
+.small-button:hover {
+
+    color: #fff;
+
+    background:
+        rgba(255, 190, 215, .08);
+}
+
+
+/* =========================
+   FINAL VIDEO
+========================= */
+
+.final-content h1 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            65px,
+            13vw,
+            95px
+        );
+
+    font-weight: 400;
+
+    color: #fff1f6;
+}
+
+
+.final-text {
+
+    color: #e8bfd0;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+.video-frame {
+
+    width:
+        min(100%, 600px);
+
+    margin:
+        25px auto;
+
+    padding: 7px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0a8c1,
+            #9b669d,
+            #f0a8c1
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(240, 160, 200, .2);
+}
+
+
+.video-placeholder {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #512a46,
+            #251526
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #dcaec2;
+}
+
+
+.video-placeholder span {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+
+.video-placeholder p {
+
+    font-size: 12px;
+}
+
+
+.love-text {
+
+    color: #f5cbd9;
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .password-content,
+    .home-content,
+    .message-content,
+    .final-content {
+
+        width: 90%;
+    }
+
+
+    .image-frame {
+
+        width:
+            min(82vw, 300px);
+    }
+
+
+    .message-card {
+
+        min-height: 280px;
+
+        padding:
+            60px 22px 35px;
+    }
+
+
+    .message-buttons {
+
+        gap: 8px;
+    }
+
+
+    .message-buttons button {
+
+        padding:
+            10px 17px;
+    }
+
+
+    .video-frame {
+
+        width: 95%;
+    }
+img {
+  width: 200px;
+  height: auto;
+  border-radius: 15px;
+}
+  video {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  }
